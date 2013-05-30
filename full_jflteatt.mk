@@ -27,6 +27,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from jflteatt device
 $(call inherit-product, device/samsung/jflteatt/device.mk)
 
+# Loki required files for bootloader
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/recovery/postrecoveryexit.sh:recovery/root/sbin/postrecoveryexit.sh \
+	$(LOCAL_PATH)/recovery/loki-flash:recovery/root/sbin/loki-flash \
+	$(LOCAL_PATH)/recovery/loki-arm:recovery/root/sbin/loki-arm
+
 # Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := full_jflteatt
 PRODUCT_DEVICE := jflteatt
